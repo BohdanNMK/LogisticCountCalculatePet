@@ -87,8 +87,5 @@ function returnText(name, weightKg, numberPieces) {
   return `Ми отримали ${name}, у кількості  ${weightKg} кілограм, для виготовлення свічок, шо дозволе нам виготовити ${total} штук,для виготовлення однієї свічки нам потрібно ${numberPieces} грамм воску`;
 }
 
-
-
-
 console.log(returnText(arguments[2], arguments[3], arguments[4]))
 
