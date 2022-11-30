@@ -1,23 +1,23 @@
 
 const arguments = process.argv
 
-function overAllVolume(numberOfUnits, quantity) {
+function overAllVolume(volumeOfOne, count) {
 
-  return numberOfUnits * quantity;
-
-}
-
-function returnText(name, numberOfUnits, quantity) {
-
-  return `Ми отримали продукцію ${name} у кількості  ${numberOfUnits}, та одна штука цієї продукції має обєм ${quantity}`;
+  return volumeOfOne * count;
 
 }
 
+function returnText(name, count, volumeOfOne) {
 
-function fullParameterReturn(name, numberOfUnits, quantity) {
+  return `Ми отримали продукцію ${name} у кількості  ${count}, та одна штука цієї продукції має обєм ${volumeOfOne}`;
 
-  const countTotal = overAllVolume(numberOfUnits, quantity);
-  const textResult = returnText(name, numberOfUnits, quantity);
+}
+
+
+function fullParameterReturn(name, count, volumeOfOne) {
+  
+  const countTotal = overAllVolume(volumeOfOne, count);
+  const textResult = returnText(name, count, volumeOfOne);
 
   let typeVechicle;
   if (countTotal > 40) {
