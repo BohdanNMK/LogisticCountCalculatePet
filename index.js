@@ -21,7 +21,7 @@ function fullParameterReturn(name, volumeOfOne, quantity) {
 
   let typeVechicle;
   if (countTotal > 40) {
-    typeVechicle = 'літак';
+    typeVechicle = 'літаком';
   } else if (countTotal > 10) {
     typeVechicle = `кораблем`;
 
