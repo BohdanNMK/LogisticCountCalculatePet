@@ -7,17 +7,17 @@ function overAllVolume(volumeOfOne, quantity) {
 
 }
 
-function returnText(name, volumeOfOne, quantity) {
+function returnText(name, numberOfUnits, quantity) {
 
-  return `Ми отримали продукцію ${name} у кількості  ${volumeOfOne}, та одна штука цієї продукції має обєм ${quantity}`;
+  return `Ми отримали продукцію ${name} у кількості  ${numberOfUnits}, та одна штука цієї продукції має обєм ${quantity}`;
 
 }
 
 
-function fullParameterReturn(name, volumeOfOne, quantity) {
+function fullParameterReturn(name, numberOfUnits, quantity) {
 
-  const countTotal = overAllVolume(volumeOfOne, quantity);
-  const textResult = returnText(name, volumeOfOne, quantity);
+  const countTotal = overAllVolume(numberOfUnits, quantity);
+  const textResult = returnText(name, numberOfUnits, quantity);
 
   let typeVechicle;
   if (countTotal > 40) {
@@ -34,5 +34,3 @@ function fullParameterReturn(name, volumeOfOne, quantity) {
 }
 
 console.log(fullParameterReturn(arguments[2], arguments[3], arguments[4]))
-
-
