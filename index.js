@@ -1,9 +1,9 @@
 
 const arguments = process.argv
 
-function overAllVolume(volumeOfOne, quantity) {
+function overAllVolume(numberOfUnits, quantity) {
 
-  return volumeOfOne * quantity;
+  return numberOfUnits * quantity;
 
 }
 
