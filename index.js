@@ -1,6 +1,10 @@
 
 const arguments = process.argv
 
+let str = (fullParameterReturn(arguments[2],arguments[3],arguments[4]));
+let arr = str.split(' ')
+
+
 function overAllVolume(volumeOfOne, count) {
 
   return volumeOfOne * count;
@@ -33,4 +37,6 @@ function fullParameterReturn(name, count, volumeOfOne) {
   return `${textResult}. Загальний об'єм цієї продукції ${countTotal}, що дозволяє нам її транспортувати ${typeVechicle}`;
 }
 
+
 console.log(fullParameterReturn(arguments[2], arguments[3], arguments[4]))
+console.table(arr)
