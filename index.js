@@ -1,8 +1,8 @@
 
 const arguments = process.argv
 
-let str = (fullParameterReturn(arguments[2],arguments[3],arguments[4]));
-let arr = str.split(' ')
+const str = (fullParameterReturn(arguments[2], arguments[3], arguments[4]));
+const arr = str.split(' ')
 
 
 function overAllVolume(volumeOfOne, count) {
@@ -19,7 +19,7 @@ function returnText(name, count, volumeOfOne) {
 
 
 function fullParameterReturn(name, count, volumeOfOne) {
-  
+
   const countTotal = overAllVolume(volumeOfOne, count);
   const textResult = returnText(name, count, volumeOfOne);
 
