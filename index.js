@@ -11,7 +11,7 @@ function showTwoTables(name, count, volumeOfOne) {
 
   console.table(arr);
   console.table(Text);
-  console.table(newArr);
+  return newArr;
 
 }
 
