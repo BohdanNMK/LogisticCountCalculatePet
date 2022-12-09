@@ -1,8 +1,19 @@
 
 const arguments = process.argv
 
-const str = (fullParameterReturn(arguments[2], arguments[3], arguments[4]));
-const arr = str.split(' ')
+
+function showTwoTables(name, count, volumeOfOne) {
+  const str = fullParameterReturn(name, count, volumeOfOne);
+  const arr = str.split(' ');
+  const Text = `"Таблиця чисел з калькуляцій додатку:"`;
+  const newArr = [];
+  newArr.push(arr[6], arr[14], arr[19]);
+
+  console.table(arr);
+  console.table(Text);
+  console.table(newArr);
+
+}
 
 
 function overAllVolume(volumeOfOne, count) {
@@ -13,7 +24,7 @@ function overAllVolume(volumeOfOne, count) {
 
 function returnText(name, count, volumeOfOne) {
 
-  return `Ми отримали продукцію ${name} у кількості  ${count}, та одна штука цієї продукції має обєм ${volumeOfOne}`;
+  return `Ми отримали продукцію ${name} у кількості ${count}, та одна штука цієї продукції має обєм ${volumeOfOne}`;
 
 }
 
@@ -39,4 +50,5 @@ function fullParameterReturn(name, count, volumeOfOne) {
 
 
 console.log(fullParameterReturn(arguments[2], arguments[3], arguments[4]))
-console.table(arr)
+console.table(showTwoTables(arguments[2], arguments[3], arguments[4]))
+
