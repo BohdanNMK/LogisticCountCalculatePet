@@ -1,18 +1,20 @@
 
 const arguments = process.argv
 
-
 function showTwoTables(name, count, volumeOfOne) {
   const str = fullParameterReturn(name, count, volumeOfOne);
   const arr = str.split(' ');
+  arr.splice();
+
   const Text = `"Таблиця чисел з калькуляцій додатку:"`;
-  const newArr = [];
-  newArr.push(arr[6], arr[14], arr[19]);
+
+  const newArr = [parseInt(arr[6].substring(0, arr[6].length - 1)), parseInt(arr[14].substring(0, arr[14].length - 1)), parseInt(arr[19].substring(0, arr[19].length - 1))];
+
 
   console.table(arr);
-  console.table(Text);
-  return newArr;
-
+  console.log(Text);
+  console.table(newArr);
+  return str;
 }
 
 
@@ -49,6 +51,5 @@ function fullParameterReturn(name, count, volumeOfOne) {
 }
 
 
-console.log(fullParameterReturn(arguments[2], arguments[3], arguments[4]))
-console.table(showTwoTables(arguments[2], arguments[3], arguments[4]))
+console.log(showTwoTables(arguments[2], arguments[3], arguments[4]))
 
