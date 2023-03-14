@@ -1,19 +1,20 @@
 const { PLANE, SHIP, CAR, PLANE_TOTAL_VOLUME, SHIP_TOTAL_VOLUME, CAR_TOTAL_VOLUME } = require('./Veribals');
 
-const calculationTotalVolume = function ({volumeOfOne, count}) {
-    return volumeOfOne * count;
-
+const calculationTotalVolume = function ({volumeOfOne, count} ) {
+     return volumeOfOne * count;
+     
 };
 
-const displayTextWithNameAndCalculations = function ({name, count, volumeOfOne}) {//TO DO: cange in object
+const displayTextWithNameAndCalculations = function ({ name, count, volumeOfOne }) {
 
-    return `Ми отримали продукцію ${name} у кількості ${count}, та одна штука цієї продукції має обєм ${volumeOfOne}`;
-    
+    return 'Ми отримали продукцію ' + name + ' у кількості ' + count + ', та одна штука цієї продукції має обєм ' + volumeOfOne;
+
 };
-const getGeneralTextAndCalculation = function ({name, count, volumeOfOne}) {//
+const getGeneralTextAndCalculation = function ({ name, count, volumeOfOne}) {
 
-    const totalVolume = calculationTotalVolume({count, volumeOfOne});
-    const textResult = displayTextWithNameAndCalculations({name,count,volumeOfOne});
+    const totalVolume = calculationTotalVolume({count,volumeOfOne});
+   
+    const textResult = displayTextWithNameAndCalculations({ name, count, volumeOfOne });
 
     let deliveryVehicles;
     if (totalVolume > PLANE_TOTAL_VOLUME) {
@@ -28,6 +29,7 @@ const getGeneralTextAndCalculation = function ({name, count, volumeOfOne}) {//
 
     return `${textResult}. Загальний об'єм цієї продукції ${totalVolume}, що дозволяє нам її транспортувати ${deliveryVehicles}`;
 }
+ 
 
 module.exports = {
     calculationTotalVolume,
