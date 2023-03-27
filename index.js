@@ -1,7 +1,8 @@
- fs = require('fs')
+const fs = require('fs');
 const arguments = process.argv;
-const {selectTextOutputToTable} = require('./selectTextOutputToTable')
 
+const {SelectTextOutputToTable} = require('./selectTextOutputToTable')
+const textOutput = new SelectTextOutputToTable();
 const showOutputData = ({
     
     arrParsPunctuationMarks,
@@ -34,7 +35,7 @@ const writeDataToFile = ({
     arrOutNumbersInTable,
   }) => {
     const data = JSON.stringify({
-       TEXT_CALCULATION_TABLE,
+       TEXT_CALCULATION_TABLE, 
         arrOutNumbersInTable,
     })
     fs.writeFileSync('test.txt', data,  (err) => { 
@@ -45,13 +46,14 @@ const writeDataToFile = ({
       }
     });
   }
-      
 
-     
 
- selectTextOutputToTable({ name: arguments[2], count: arguments[3], volumeOfOne: arguments[4],cb:writeDataToFile})
-console.log(1);
-selectTextOutputToTable({ name: arguments[2], count: arguments[3], volumeOfOne: arguments[4], timeout: getRandomArbitrary(1000, 5000), number: 1, cb: showOutputData});
+
+
+
+
+   
+   console.log(textOutput)
 console.log(2);
 selectTextOutputToTable({ name: arguments[2], count: arguments[3], volumeOfOne: arguments[4], timeout: getRandomArbitrary(1000, 5000), number: 2, cb: showOutputData});
 console.log(3);
