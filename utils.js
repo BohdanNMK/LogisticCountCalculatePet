@@ -10,7 +10,7 @@ const displayTextWithNameAndCalculations = function ({ name, count, volumeOfOne 
     return 'Ми отримали продукцію ' + name + ' у кількості ' + count + ', та одна штука цієї продукції має обєм ' + volumeOfOne;
 
 };
-const getGeneralTextAndCalculation = function ({ name, count, volumeOfOne}) {
+const getGeneralTextAndCalculation = function (name, count, volumeOfOne) {
 
     const totalVolume = calculationTotalVolume({count,volumeOfOne});
    

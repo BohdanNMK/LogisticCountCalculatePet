@@ -1,14 +1,11 @@
-const {getGeneralTextAndCalculation} = require('./utils');
+const { getGeneralTextAndCalculation } = require('./utils');
 const { ARR_CHECK_PUNCTUATION_MARKS, ARR_CHECK_NUMBERS, TEXT_CALCULATION_TABLE } = require('./Veribals');
 
 class SelectTextOutputToTable {
-  constructor(name, count, volumeOfOne, number, timeout, cb) {
+  constructor(name, count, volumeOfOne) {
     this.name = name;
     this.count = count;
     this.volumeOfOne = volumeOfOne;
-    this.number = number;
-    this.timeout = timeout;
-    this.cb = cb;
   }
 
   completeText() {
@@ -42,26 +39,23 @@ class SelectTextOutputToTable {
       if (checkNumbersIndexes.includes(index)) {
         arrOutNumbersInTable.push(parseInt(word.substring(0, parseInt(word.length - 1))));
       }
-    });
+    })
 
-    setTimeout(() => {
-      this.cb({
-        number: this.number,
-        timeout: this.timeout,
-        arrOutNumbersInTable,
-        arrParsPunctuationMarks,
-        arrParsNumbers,
-        arrWords,
-        arrParsLetters,
-        checkNumbersIndexes,
-        TEXT_CALCULATION_TABLE,
-      });
-    }, this.timeout);
+
+    console.log(arrParsPunctuationMarks),
+      console.log(arrParsNumbers),
+      console.log(arrWords),
+      console.log(arrParsLetters),
+      console.log(checkNumbersIndexes),
+      console.log(TEXT_CALCULATION_TABLE)
+    console.table(arrOutNumbersInTable)
+    return completeText
   }
-};
+}
 
 
-// перевести на класс формат
-  
 
-  module.exports = {SelectTextOutputToTable};
+
+
+
+module.exports = SelectTextOutputToTable;
