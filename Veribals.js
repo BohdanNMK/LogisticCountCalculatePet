@@ -7,5 +7,6 @@ module.exports = {
     CAR: `машиною`,
     PLANE_TOTAL_VOLUME: 40,
     SHIP_TOTAL_VOLUME: 10,
-    CAR_TOTAL_VOLUME: 10
+    CAR_TOTAL_VOLUME: 10,
+    DATA: `dataname.txt`,
 };

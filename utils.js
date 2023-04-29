@@ -1,21 +1,25 @@
-const { PLANE, SHIP, CAR, PLANE_TOTAL_VOLUME, SHIP_TOTAL_VOLUME, CAR_TOTAL_VOLUME } = require('./Veribals');
 
-const calculationTotalVolume = function ({volumeOfOne, count} ) {
-     return volumeOfOne * count;
-     
-};
+const { PLANE, SHIP, CAR, PLANE_TOTAL_VOLUME, SHIP_TOTAL_VOLUME, CAR_TOTAL_VOLUME, TEXT_CALCULATION_TABLE, DATA } = require('./Veribals');
+const fs = require('fs');
 
-const displayTextWithNameAndCalculations = function ({ name, count, volumeOfOne }) {
 
-    return 'Ми отримали продукцію ' + name + ' у кількості ' + count + ', та одна штука цієї продукції має обєм ' + volumeOfOne;
 
-};
-const getGeneralTextAndCalculation = function (name, count, volumeOfOne) {
+class Utils {
+    constructor(name, count, volumeOfOne) {
+        this.name = name;
+        this.count = count;
+        this.volumeOfOne = volumeOfOne;
+      }
 
-    const totalVolume = calculationTotalVolume({count,volumeOfOne});
-   
-    const textResult = displayTextWithNameAndCalculations({ name, count, volumeOfOne });
+  calculationTotalVolume({ volumeOfOne, count }) {
+    return volumeOfOne * count;
+  }
 
+  displayTextWithNameAndCalculations({ name, count, volumeOfOne }) {
+    return `Ми отримали продукцію ${name} у кількості ${count}, та одна штука цієї продукції має об'єм ${volumeOfOne}`;
+  }
+
+  getDeliveryVehicles(totalVolume) {
     let deliveryVehicles;
     if (totalVolume > PLANE_TOTAL_VOLUME) {
         deliveryVehicles = PLANE;
@@ -26,14 +30,28 @@ const getGeneralTextAndCalculation = function (name, count, volumeOfOne) {
         deliveryVehicles = CAR;
 
     }
+  }
 
+  getGeneralTextAndCalculation(name, count, volumeOfOne) {
+    const totalVolume = this.calculationTotalVolume({ count, volumeOfOne });
+    const textResult = this.displayTextWithNameAndCalculations({ name, count, volumeOfOne });
+    const deliveryVehicles = this.getDeliveryVehicles(totalVolume);
     return `${textResult}. Загальний об'єм цієї продукції ${totalVolume}, що дозволяє нам її транспортувати ${deliveryVehicles}`;
-}
- 
+  }
 
-module.exports = {
-    calculationTotalVolume,
-    displayTextWithNameAndCalculations,
-    getGeneralTextAndCalculation
+  writeFile() {
+    const AddData = TEXT_CALCULATION_TABLE ;
+    fs.writeFileSync(DATA, JSON.stringify(AddData), (error) => {
+      if (error) {
+        throw error;
+      } else {
+        console.log("Запись файла завершена. Содержимое файла:");
+      }
+      
+    });
+
+  }
 };
 
+
+module.exports = Utils;

@@ -1,5 +1,10 @@
-const { getGeneralTextAndCalculation } = require('./utils');
+
 const { ARR_CHECK_PUNCTUATION_MARKS, ARR_CHECK_NUMBERS, TEXT_CALCULATION_TABLE } = require('./Veribals');
+const Utils = require('./utils');
+
+const myUtils = new Utils(arguments[2], arguments[3], arguments[4])
+
+
 
 class SelectTextOutputToTable {
   constructor(name, count, volumeOfOne) {
@@ -8,8 +13,9 @@ class SelectTextOutputToTable {
     this.volumeOfOne = volumeOfOne;
   }
 
+
   completeText() {
-    const completeText = getGeneralTextAndCalculation(this.name, this.count, this.volumeOfOne);
+    const completeText = myUtils.getGeneralTextAndCalculation(this.name, this.count, this.volumeOfOne);
     const arrWords = completeText.split(' ');
     const arrLetters = completeText.split('');
     const arrParsPunctuationMarks = [];
@@ -28,7 +34,6 @@ class SelectTextOutputToTable {
 
     const arrOutNumbersInTable = [];
     const checkNumbersIndexes = [];
-
     arrWords.forEach((word, index) => {
       if (!isNaN(word) || (ARR_CHECK_PUNCTUATION_MARKS.includes(word.substring(word.length - 1, word.length)) && !isNaN(word.substring(0, word.length - 1)))) {
         checkNumbersIndexes.push(index);
@@ -39,23 +44,18 @@ class SelectTextOutputToTable {
       if (checkNumbersIndexes.includes(index)) {
         arrOutNumbersInTable.push(parseInt(word.substring(0, parseInt(word.length - 1))));
       }
-    })
+    });
 
-
-    console.log(arrParsPunctuationMarks),
-      console.log(arrParsNumbers),
-      console.log(arrWords),
-      console.log(arrParsLetters),
-      console.log(checkNumbersIndexes),
-      console.log(TEXT_CALCULATION_TABLE)
-    console.table(arrOutNumbersInTable)
-    return completeText
+    console.log(myUtils.writeFile())
+    console.log(arrParsPunctuationMarks);
+    console.log(arrParsNumbers);
+    console.log(JSON.stringify(arrParsLetters));
+    console.log(checkNumbersIndexes);
+    console.log(TEXT_CALCULATION_TABLE);
+    return arrOutNumbersInTable
   }
-}
 
-
-
-
+};
 
 
 module.exports = SelectTextOutputToTable;
