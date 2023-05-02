@@ -1,27 +1,24 @@
 
-const { ARR_CHECK_PUNCTUATION_MARKS, ARR_CHECK_NUMBERS, TEXT_CALCULATION_TABLE } = require('./Veribals');
-const Utils = require('./utils');
-
-const myUtils = new Utils(arguments[2], arguments[3], arguments[4])
-
-
+const { ARR_CHECK_PUNCTUATION_MARKS, ARR_CHECK_NUMBERS, TEXT_CALCULATION_TABLE } = require('./veribals');
+const Utils = require('./Utils');
 
 class SelectTextOutputToTable {
   constructor(name, count, volumeOfOne) {
     this.name = name;
     this.count = count;
     this.volumeOfOne = volumeOfOne;
-  }
+    this.myUtils = new Utils(name,count,volumeOfOne)
+    }
 
 
   completeText() {
-    const completeText = myUtils.getGeneralTextAndCalculation(this.name, this.count, this.volumeOfOne);
+    const completeText = this.myUtils.getGeneralTextAndCalculation(this.name,this.count,this.volumeOfOne);
     const arrWords = completeText.split(' ');
     const arrLetters = completeText.split('');
     const arrParsPunctuationMarks = [];
     const arrParsNumbers = [];
     const arrParsLetters = [];
-
+    
     arrLetters.forEach((letter) => {
       if (ARR_CHECK_PUNCTUATION_MARKS.includes(letter)) {
         arrParsPunctuationMarks.push(letter);
@@ -46,7 +43,7 @@ class SelectTextOutputToTable {
       }
     });
 
-    console.log(myUtils.writeFile())
+    this.myUtils.writeFile(arrOutNumbersInTable)
     console.log(arrParsPunctuationMarks);
     console.log(arrParsNumbers);
     console.log(JSON.stringify(arrParsLetters));
