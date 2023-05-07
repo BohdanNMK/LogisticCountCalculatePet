@@ -45,7 +45,7 @@ class Utils {
             if (error) {
                 throw error;
             } else {
-                console.log("Запись файла завершена. Содержимое файла:");
+                console.log("Запись файла завершена.");
             }
         });
     }

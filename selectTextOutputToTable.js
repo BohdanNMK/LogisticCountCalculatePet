@@ -12,7 +12,7 @@ class SelectTextOutputToTable {
 
 
   completeText() {
-    const completeText = this.myUtils.getGeneralTextAndCalculation(this.name,this.count,this.volumeOfOne);
+    const completeText = this.myUtils.getGeneralTextAndCalculation();
     const arrWords = completeText.split(' ');
     const arrLetters = completeText.split('');
     const arrParsPunctuationMarks = [];
